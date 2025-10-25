@@ -2,4 +2,10 @@
 
 import ddnet_physics
 
-ddnet_physics.sample("/home/chiller/.teeworlds/maps/tinycave.map")
+physics = ddnet_physics.DDNetPhysics("/home/chiller/.teeworlds/maps/tinycave.map")
+physics.add_character()
+physics.tick()
+
+for character in physics.characters():
+    print(f"character with id={character.m_Id}")
+
