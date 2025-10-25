@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ddnet_physics"
+version = "0.1.0"
+description = "python bindings for ddnet phyiscs C library"
+authors = [{name = "ChillerDragon", email = "chillerdragon@gmail.com"}]
+readme = "README.md"
+license = {text = "BSD-2-Clause"}
+requires-python = ">=3.7"
+dependencies = [
+    "ddnet_maploader"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = [
+    ".venv",
+    "venv",
+    "tests*",
+    "scripts*",
+    "venv*",
+    "data*"
+]

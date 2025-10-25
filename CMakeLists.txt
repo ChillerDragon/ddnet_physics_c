@@ -11,7 +11,7 @@ option(ENABLE_AGGRESSIVE_OPTIM "Enable aggressive optimizations with LTO and nat
 option(TESTS "Whether to compile tests" OFF)
 
 # Define the static library
-add_library(ddnet_physics STATIC
+add_library(ddnet_physics SHARED
     include/ddnet_physics/collision.h
     include/ddnet_physics/config.h
     include/ddnet_physics/gamecore.h
