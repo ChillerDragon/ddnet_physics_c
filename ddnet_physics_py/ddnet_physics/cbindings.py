@@ -3,7 +3,7 @@ import pathlib
 import sys
 import os
 
-from .gamecore import SConfig, STeeGrid, SWorldCore
+from .gamecore import SCharacterCore, SConfig, STeeGrid, SWorldCore
 from .collision import SCollision
 
 import ddnet_maploader
@@ -53,6 +53,7 @@ init_config.restype = None
 wc_init = _lib_physics.wc_init
 wc_init.argtypes = [
     ctypes.POINTER(SWorldCore),
+    ctypes.POINTER(SCollision),
     ctypes.POINTER(STeeGrid),
     ctypes.POINTER(SConfig)
 ]
@@ -61,6 +62,10 @@ wc_init.restype = None
 wc_tick = _lib_physics.wc_tick
 wc_tick.argtypes = [ctypes.POINTER(SWorldCore)]
 wc_tick.restype = None
+
+wc_add_character = _lib_physics.wc_add_character
+wc_add_character.argtypes = [ctypes.POINTER(SWorldCore), ctypes.c_int]
+wc_add_character.restype = ctypes.POINTER(SCharacterCore)
 
 # collision.h
 init_collision = _lib_physics.init_collision
